@@ -96,7 +96,7 @@ static NSString *const reuseIdentifier = @"cell";
 
 - (NSInteger)numberOfItemsInSide
 {
-  return 3;
+  return 1;
 }
 
 - (CGFloat)itemLength
@@ -106,7 +106,7 @@ static NSString *const reuseIdentifier = @"cell";
 
 - (NSArray *)itemArrayLength
 {
-    NSArray  *obj = @[@"100", @"200", @"300", @"100", @"400"];
+    NSArray  *obj = @[@"100", @"200", @"120", @"400", @"90"];
     return obj;
 }
 

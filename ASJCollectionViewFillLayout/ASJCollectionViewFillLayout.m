@@ -195,19 +195,30 @@
           itemSize = CGSizeMake(itemWidth, length);
       }
       
-    if (itemSize.height > rowHeight) {
+    //if (itemSize.height > rowHeight) {
       rowHeight = itemSize.height;
-    }
+      //NSLog(@"----- SET-------");
+    //}
     
+      /*NSLog(@"------------");
+      NSLog(@"yOffset :%f", yOffset);
+      NSLog(@"itemSize :%f", itemSize.height);
+      NSLog(@"rowHeight :%f", rowHeight);*/
+      
+      
     // create layout attributes objects
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemSize.width, itemSize.height));
     [layoutAttributes addObject:attributes];
     
+    //NSLog(@"xOffset A :%@", attributes.frame);
+      
     // move 'x' for next item
     xOffset = xOffset + itemSize.width + _itemSpacing;
     column++;
+      
+    //NSLog(@"yOffset A :%f", yOffset);
     
     // if item was the last one in current row
     // special case handled for when number of items is lesser than
@@ -225,11 +236,14 @@
       yOffset += rowHeight + _itemSpacing;
     }
     
+    //NSLog(@"yOffset B :%f", yOffset);
+      
     // calculate content height
     UICollectionViewLayoutAttributes *lastAttributes = layoutAttributes.lastObject;
     contentHeight = lastAttributes.frame.origin.y + lastAttributes.frame.size.height;
     _contentSize = CGSizeMake(contentWidth, contentHeight + _itemSpacing);
     _itemAttributes = [NSArray arrayWithArray:layoutAttributes];
+
   }
 }
 
@@ -267,6 +281,14 @@
     }
     CGSize itemSize = CGSizeMake(_itemLength, itemHeight);
     
+      // check setItemLengthType
+      if (!_setItemLengthType) {
+          itemSize = CGSizeMake(itemHeight, _itemLength);
+      }else{
+          float length = [[_itemArrayLength objectAtIndex:i] floatValue];
+          itemSize = CGSizeMake(itemHeight, length);
+      }
+      
     if (itemSize.width > columnWidth) {
       columnWidth = itemSize.width;
     }

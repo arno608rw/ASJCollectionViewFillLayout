@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name          = 'ARASJCollectionViewFillLayout'
+  s.name          = 'ASJCollectionViewFillLayout'
   s.version       = '2.1'
   s.platform	    = :ios, '7.0'
   s.license       = { :type => 'MIT' }

@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "ASJCollectionViewFillLayout.h"
 
-static NSInteger const kNoOfItems = 17;
+static NSInteger const kNoOfItems = 5;
 static NSString *const reuseIdentifier = @"cell";
 
 @interface ViewController () <ASJCollectionViewFillLayoutDelegate>
@@ -47,6 +47,7 @@ static NSString *const reuseIdentifier = @"cell";
   _aLayout = [[ASJCollectionViewFillLayout alloc] init];
   _aLayout.delegate = self;
   _aLayout.direction = ASJCollectionViewFillLayoutVertical;
+    _aLayout.setItemLengthType = YES;
   _aCollectionView.collectionViewLayout = _aLayout;
 }
 
@@ -101,6 +102,12 @@ static NSString *const reuseIdentifier = @"cell";
 - (CGFloat)itemLength
 {
   return 100.0f;
+}
+
+- (NSArray *)itemArrayLength
+{
+    NSArray  *obj = @[@"100", @"200", @"300", @"100", @"400"];
+    return obj;
 }
 
 - (CGFloat)itemSpacing

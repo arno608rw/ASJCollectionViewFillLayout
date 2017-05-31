@@ -116,6 +116,10 @@
   {
     _itemLength = [_delegate itemLength];
   }
+    if ([_delegate respondsToSelector:@selector(itemArrayLength)])
+    {
+        _itemArrayLength = [_delegate itemArrayLength];
+    }
   if ([_delegate respondsToSelector:@selector(itemSpacing)])
   {
     _itemSpacing = [_delegate itemSpacing];
@@ -180,8 +184,17 @@
     if (!_itemLength) {
       _itemLength = itemWidth;
     }
+      
     CGSize itemSize = CGSizeMake(itemWidth, _itemLength);
     
+      // check setItemLengthType
+      if (!_setItemLengthType) {
+          itemSize = CGSizeMake(itemWidth, _itemLength);
+      }else{
+          float length = [[_itemArrayLength objectAtIndex:i] floatValue];
+          itemSize = CGSizeMake(itemWidth, length);
+      }
+      
     if (itemSize.height > rowHeight) {
       rowHeight = itemSize.height;
     }

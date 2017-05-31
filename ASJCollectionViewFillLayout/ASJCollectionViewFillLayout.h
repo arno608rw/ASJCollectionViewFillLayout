@@ -51,6 +51,14 @@ typedef NS_ENUM(NSInteger, ASJCollectionViewFillLayoutDirection)
 - (CGFloat)itemLength;
 
 /**
+ *  Sets the width or height for a collection view item, depending on the direction of the layout.
+ *  By default, the direction is `ASJCollectionViewFillLayoutVertical` for which the item width will be calculated and the item height may vary.
+ *  For `ASJCollectionViewFillLayoutVertical`, the item height will be calculated and the item width may vary.
+ *  If `itemLength` is not set, it defaults to the calculated item width or height.
+ */
+- (NSArray *)itemArrayLength;
+
+/**
  *  Sets the 'inter-item spacing' between two collection
  *  view items. This will also set the padding between an
  *  item and the collection view boundary.
@@ -77,6 +85,14 @@ typedef NS_ENUM(NSInteger, ASJCollectionViewFillLayoutDirection)
 @property (assign, nonatomic) CGFloat itemLength;
 
 /**
+ *  Sets the width or height for a collection view item, depending on the direction of the layout.
+ *  By default, the direction is `ASJCollectionViewFillLayoutVertical` for which the item width will be calculated and the item height may vary.
+ *  For `ASJCollectionViewFillLayoutVertical`, the item height will be calculated and the item width may vary.
+ *  If `itemLength` is not set, it defaults to the calculated item width or height.
+ */
+@property (assign, nonatomic) NSArray *itemArrayLength;
+
+/**
  *  Sets the 'inter-item spacing' between two collection
  *  view items. This will also set the padding between an
  *  item and the collection view boundary.
@@ -94,6 +110,12 @@ typedef NS_ENUM(NSInteger, ASJCollectionViewFillLayoutDirection)
  *  across the collection view width or height (default behavior).
  */
 @property (assign, nonatomic) BOOL stretchesLastItems;
+
+/**
+ *  Sets type itemLength or itemArrayLength.
+ *  If set to NO itemLength, YES itemArrayLength (default NO).
+ */
+@property (assign, nonatomic) BOOL setItemLengthType;
 
 /**
  *  The delegate for the fill layout. You must set this

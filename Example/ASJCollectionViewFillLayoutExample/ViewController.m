@@ -106,8 +106,26 @@ static NSString *const reuseIdentifier = @"cell";
 
 - (NSArray *)itemArrayLength
 {
-    NSArray  *obj = @[@"100", @"200", @"120", @"400", @"90"];
-    return obj;
+    
+    NSMutableArray *arrayMLength = [NSMutableArray new];
+    
+    //NSMutableArray *mulArr = [NSMutableArray new];
+    //[mulArr addObject:[NSDecimalNumber numberWithInt:number]];
+    
+    for (int i = 0; i < 5; i++) {
+        
+        //CGFloat length = [self heightForText:[[objectMuseumsWithTags[i] objectForKey:@"basic_info"] objectForKey:@"description"]];
+        float dlength = (float)262.0f;
+        float dlengthAndFix = dlength  + 262.0f;
+        //[arrayMLength addObject:@"200"];
+        [arrayMLength addObject:[NSString stringWithFormat:@"%f", dlengthAndFix]];
+        
+    }
+    
+    return [arrayMLength copy];
+    
+    //NSArray  *obj = @[@"100", @"200", @"120", @"400", @"90"];
+    //return obj;
 }
 
 - (CGFloat)itemSpacing

@@ -90,7 +90,7 @@ typedef NS_ENUM(NSInteger, ASJCollectionViewFillLayoutDirection)
  *  For `ASJCollectionViewFillLayoutVertical`, the item height will be calculated and the item width may vary.
  *  If `itemLength` is not set, it defaults to the calculated item width or height.
  */
-@property (assign, nonatomic) NSArray *itemArrayLength;
+@property (nonatomic,strong,readwrite) NSArray *itemArrayLength;
 
 /**
  *  Sets the 'inter-item spacing' between two collection
